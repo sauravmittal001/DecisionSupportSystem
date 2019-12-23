@@ -67,3 +67,27 @@ def events_table(request):
     events_table = EventTable.objects.all()
     context = {'events_table': events_table}
     return render(request, 'law_and_order/events_table.html', context=context)
+
+
+def about(request):
+    return render(request, 'law_and_order/about.html')
+
+
+def new_event(request):
+    return render(request, 'law_and_order/new_event.html')
+
+
+def new_event_riots(request):
+    return render(request, 'law_and_order/new_event_riots.html')
+
+
+def new_event_rally(request):
+    return render(request, 'law_and_order/new_event_rally.html')
+
+
+def new_event_critical_route(request):
+    return render(request, 'law_and_order/new_event_critical_route.html')
+
+
+def new_event_vip_leader(request):
+    return render(request, 'law_and_order/new_event_vip_leader.html')
