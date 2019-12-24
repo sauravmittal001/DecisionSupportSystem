@@ -21,7 +21,7 @@ def index(request):
     return render(request, 'law_and_order/index.html', context=context)
 
 
-def detail(request, id):
+def detail(request):
     try:
         events_table = EventTable.objects.all()
     except EventTable.DoesNotExist:
@@ -91,3 +91,4 @@ def new_event_critical_route(request):
 
 def new_event_vip_leader(request):
     return render(request, 'law_and_order/new_event_vip_leader.html')
+
