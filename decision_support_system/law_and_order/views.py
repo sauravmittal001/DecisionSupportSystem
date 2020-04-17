@@ -1,72 +1,20 @@
 from django.http import Http404
-# from django.template import loader
 from django.shortcuts import render
+from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
-from .models import EventTable, Rally, Riots, VipLeader, CriticalRoute
+from .forms import *
+from .serializers import *
 
 
+# Static pages
 def index(request):
-    events_table = EventTable.objects.all()
-    # template = loader.get_template('law_and_order/index.html')
-    context = {'events_table': events_table}
-    """
-    html = ''
-    for event in events_table:
-        url = '/law_and_order/' + str(event.id) + '/'
-        html += '<a href="' + url + '">' + event.name + '</a>' + '&nbsp;' + event.time_of_event + '</a>' + '&nbsp;' 
-        + event.location + '</a>' + '&nbsp;' + event.date_of_event + '</a><br>'
-
-    """
-    # return HttpResponse(template.render(context, request))
-    return render(request, 'law_and_order/index.html', context=context)
-
-
-def detail(request):
-    try:
-        events_table = EventTable.objects.all()
-    except EventTable.DoesNotExist:
-        raise Http404("Event does not exist")
-    # return HttpResponse("<h2> details for event_id:" + str(id) + "</h2>")
-    return render(request, 'law_and_order/details.html', {'events_table': events_table})
-
-
-def apiTest(request):
-    print(request)
-    return request
+    return render(request, 'law_and_order/index.html')
 
 
 def home(request):
     return render(request, 'law_and_order/home.html')
-
-
-def rally(request):
-    rally_table = Rally.objects.all()
-    context = {'rally_table': rally_table}
-    return render(request, 'law_and_order/rally.html', context=context)
-
-
-def riots(request):
-    riots_table = Riots.objects.all()
-    context = {'riots_table': riots_table}
-    return render(request, 'law_and_order/riots.html', context=context)
-
-
-def vip_leader(request):
-    vip_leader_table = VipLeader.objects.all()
-    context = {'vip_leader_table': vip_leader_table}
-    return render(request, 'law_and_order/vip_leader.html', context=context)
-
-
-def critical_route(request):
-    critical_route_table = CriticalRoute.objects.all()
-    context = {'critical_route_table': critical_route_table}
-    return render(request, 'law_and_order/critical_route.html', context=context)
-
-
-def events_table(request):
-    events_table = EventTable.objects.all()
-    context = {'events_table': events_table}
-    return render(request, 'law_and_order/events_table.html', context=context)
 
 
 def about(request):
@@ -77,18 +25,285 @@ def new_event(request):
     return render(request, 'law_and_order/new_event.html')
 
 
-def new_event_riots(request):
-    return render(request, 'law_and_order/new_event_riots.html')
+# Model Tables
+def rally(request):
+    rally_table = Rally.objects.all()
+    context = {'rally_table': rally_table}
+    return render(request, 'law_and_order/rally.html', context=context)
 
 
-def new_event_rally(request):
-    return render(request, 'law_and_order/new_event_rally.html')
+def epidemic(request):
+    epidemic_table = Epidemic.objects.all()
+    context = {'epidemic_table': epidemic_table}
+    return render(request, 'law_and_order/epidemic.html', context=context)
 
 
-def new_event_critical_route(request):
-    return render(request, 'law_and_order/new_event_critical_route.html')
+def natural_calamities(request):
+    natural_calamities__table = NaturalCalamities.objects.all()
+    context = {'natural_calamities_table': natural_calamities__table}
+    return render(request, 'law_and_order/natural_calamities.html', context=context)
 
 
-def new_event_vip_leader(request):
-    return render(request, 'law_and_order/new_event_vip_leader.html')
+def public_gathering(request):
+    public_gathering_table = PublicGathering.objects.all()
+    context = {'public_gathering_table': public_gathering_table}
+    return render(request, 'law_and_order/public_gathering.html', context=context)
 
+
+def crime(request):
+    crime_table = Crime.objects.all()
+    context = {'crime_table': crime_table}
+    return render(request, 'law_and_order/crime.html', context=context)
+
+
+# class based view for serializers
+# list all rally or create a new one
+class RallyDetail(APIView):
+
+    def get_object(self, id):
+        try:
+            return Rally.objects.get(id=id)
+        except Rally.DoesNotExist:
+            raise Http404
+
+    def get(self, request):
+        rallyObject = Rally.objects.all()
+        serializer = RallySerializer(rallyObject, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = RallySerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request):
+        to_be_deleted_id = int(request.GET['id'])
+        rallyObject = self.get_object(to_be_deleted_id)
+        rallyObject.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+    def put(self, request):
+        to_be_deleted_id = int(request.GET['id'])
+        rallyObject = self.get_object(to_be_deleted_id)
+        serializer = RallySerializer(rallyObject, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def perform_destroy(self, instance):
+        instance.delete()
+
+
+class CrimeDetail(APIView):
+
+    def get_object(self, id):
+        try:
+            return Crime.objects.get(id=id)
+        except Crime.DoesNotExist:
+            raise Http404
+
+    def get(self, request):
+        crimeObject = Crime.objects.all()
+        serializer = CrimeSerializer(crimeObject, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = CrimeSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request):
+        to_be_deleted_id = int(request.GET['id'])
+        crimeObject = self.get_object(to_be_deleted_id)
+        crimeObject.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+    def put(self, request):
+        to_be_deleted_id = int(request.GET['id'])
+        crimeObject = self.get_object(to_be_deleted_id)
+        serializer = CrimeSerializer(crimeObject, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def perform_destroy(self, instance):
+        instance.delete()
+
+
+class PublicGatheringDetail(APIView):
+
+    def get_object(self, id):
+        try:
+            return PublicGathering.objects.get(id=id)
+        except PublicGathering.DoesNotExist:
+            raise Http404
+
+    def get(self, request):
+        publicGatheringObject = PublicGathering.objects.all()
+        serializer = PublicGatheringSerializer(publicGatheringObject, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = PublicGatheringSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request):
+        to_be_deleted_id = int(request.GET['id'])
+        publicGatheringObject = self.get_object(to_be_deleted_id)
+        publicGatheringObject.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+    def put(self, request):
+        to_be_deleted_id = int(request.GET['id'])
+        publicGatheringObject = self.get_object(to_be_deleted_id)
+        serializer = PublicGatheringSerializer(publicGatheringObject, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def perform_destroy(self, instance):
+        instance.delete()
+
+
+class NaturalCalamitiesDetail(APIView):
+
+    def get_object(self, id):
+        try:
+            return NaturalCalamities.objects.get(id=id)
+        except NaturalCalamities.DoesNotExist:
+            raise Http404
+
+    def get(self, request):
+        naturalCalamitiesObject = NaturalCalamities.objects.all()
+        serializer = NaturalCalamitiesSerializer(naturalCalamitiesObject, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = NaturalCalamitiesSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request):
+        to_be_deleted_id = int(request.GET['id'])
+        naturalCalamitiesObject = self.get_object(to_be_deleted_id)
+        naturalCalamitiesObject.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+    def put(self, request):
+        to_be_deleted_id = int(request.GET['id'])
+        naturalCalamitiesObject = self.get_object(to_be_deleted_id)
+        serializer = NaturalCalamitiesSerializer(naturalCalamitiesObject, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def perform_destroy(self, instance):
+        instance.delete()
+
+
+class EpidemicDetail(APIView):
+
+    def get_object(self, id):
+        try:
+            return Epidemic.objects.get(id=id)
+        except Epidemic.DoesNotExist:
+            raise Http404
+
+    def get(self, request):
+        epidemicObject = Epidemic.objects.all()
+        serializer = EpidemicSerializer(epidemicObject, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = EpidemicSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request):
+        to_be_deleted_id = int(request.GET['id'])
+        epidemicObject = self.get_object(to_be_deleted_id)
+        epidemicObject.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+    def put(self, request):
+        to_be_deleted_id = int(request.GET['id'])
+        epidemicObject = self.get_object(to_be_deleted_id)
+        serializer = EpidemicSerializer(epidemicObject, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def perform_destroy(self, instance):
+        instance.delete()
+
+
+# model forms
+def rallyform(request):
+    if request.method == 'POST':
+        form = RallyForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+    form = RallyForm()
+
+    return render(request, 'law_and_order/new_event_rally.html', {'form': form})
+
+
+def crimeform(request):
+    if request.method == 'POST':
+        form = CrimeForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+    form = CrimeForm()
+
+    return render(request, 'law_and_order/new_event_crime.html', {'form': form})
+
+
+def epidemicform(request):
+    if request.method == 'POST':
+        form = EpidemicForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+    form = EpidemicForm()
+
+    return render(request, 'law_and_order/new_event_epidemic.html', {'form': form})
+
+
+def publicgatheringform(request):
+    if request.method == 'POST':
+        form = PublicGatheringForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+    form = PublicGatheringForm()
+
+    return render(request, 'law_and_order/new_event_public_gathering.html', {'form': form})
+
+
+def naturalcalamitiesform(request):
+    if request.method == 'POST':
+        form = NaturalCalamitiesForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+    form = NaturalCalamitiesForm()
+
+    return render(request, 'law_and_order/new_event_natural_calamities.html', {'form': form})

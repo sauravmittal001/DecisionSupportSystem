@@ -240,34 +240,18 @@
     </style>
 </head>
 <body>
+
 <div class="testbox">
 
-    <form action="/">
+    <form method="post">
+        {% csrf_token %}
         <div class="banner">
             <h1>Event Registration and Feedback: Rally</h1>
         </div>
-        <div class="item">
-            <p>Name of Event</p>
-            <input type="text" name="name"/>
-        </div>
-        <div class="item">
-            <p>Date</p>
-            <input type="date" name="bdate" required/>
-            <i class="fas fa-calendar-alt"></i>
-        </div>
-        <div class="item">
-            <p>Political Leader</p>
-            <input type="text" name="f1"/>
-        </div>
-        <div class="item">
-            <p>Protest</p>
-            <input type="text" name="f2"/>
-        </div>
-        <div class="item">
-            <p>Religion</p>
-            <input type="text" name="f2"/>
-        </div>
+        {{form}}
+        <button type="submit">Submit</button>
     </form>
 </div>
+
 </body>
 </html>

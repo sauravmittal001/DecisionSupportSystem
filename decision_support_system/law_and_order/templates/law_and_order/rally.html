@@ -9,7 +9,8 @@
         }
 
         #myInput {
-            background-image: url('/searchicon.png');
+            background-image: url('https://upload-icon.s3.us-east-2.amazonaws.com/uploads/icons/png/5696712131547546473-64.png');
+            background-size: 1.5%;
             background-position: 10px 10px;
             background-repeat: no-repeat;
             width: 100%;
@@ -105,7 +106,7 @@
     <div class="header-right">
         <a class="active" href="home.html">Home</a>
         <a href="new_event_rally.html">Create New Event</a>
-        <a href="#about">About</a>
+        <a href="about.html">About</a>
     </div>
 </div>
 
@@ -113,28 +114,21 @@
     <h2></h2>
 </div>
 
-<!-- <h2>My Customers</h2> -->
-
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
 
 <table id="myTable">
     <tr class="header">
-        {#        <th style="width:15%;">Id</th>#}
-
         <th style="width:30%;">Name</th>
-        <th style="width:15%;">Date & Time</th>
+        <th style="width:15%;">Route</th>
         <th style="width:30%;">Political Leader</th>
-        <th style="width:20%;">Protest</th>
-        <th style="width:15%;">Religion</th>
+        <th style="width:20%;">Critical Level</th>
     </tr>
     {% for rally in rally_table %}
         <tr>
-            {#            <td>{{ event.id }}</td>#}
             <td>{{ rally.name }}</td>
-            <td>{{ rally.date_time }}</td>
+            <td>{{ rally.route }}</td>
             <td>{{ rally.political_leader }}</td>
-            <td>{{ rally.protest }}</td>
-            <td>{{ rally.religion }}</td>
+            <td>{{ rally.critical_level }}</td>
         </tr>
     {% endfor %}
 </table>

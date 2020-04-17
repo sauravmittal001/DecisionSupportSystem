@@ -1,10 +1,11 @@
 from django.contrib import admin
-from .models import EventTable, Rally, Riots, VipLeader, CriticalRoute
+from .models import *
 
 # Register your models here.
 
-admin.site.register(EventTable)
 admin.site.register(Rally)
-admin.site.register(CriticalRoute)
-admin.site.register(Riots)
-admin.site.register(VipLeader)
+admin.site.register(PublicGathering)
+admin.site.register(NaturalCalamities)
+admin.site.register(Epidemic)
+admin.site.register(Crime)
+

@@ -1,22 +1,50 @@
 from django.conf.urls import url
+from rest_framework.urlpatterns import format_suffix_patterns
 
 from . import views
 
 urlpatterns = [
+    # static pages
     url(r'^$', views.index, name='index'),
-    url(r'^(?P<id>[0-9]+)/$', views.detail, name='detail'),
-    url(r'^testApi$', views.apiTest, name='apiTest'),
     url(r'^home.html$', views.home, name='home'),
-    url(r'^critical_route.html$', views.critical_route, name='critical_route'),
-    url(r'^riots.html$', views.riots, name='riots'),
-    url(r'^rally.html$', views.rally, name='rally'),
-    url(r'^vip_leader.html$', views.vip_leader, name='vip_leader'),
-    url(r'^events_table.html$', views.events_table, name='events_table'),
     url(r'^about.html$', views.about, name='about'),
     url(r'^new_event.html', views.new_event, name='new_event'),
 
-    url(r'^new_event_riots.html', views.new_event_riots, name='new_event_riots'),
-    url(r'^new_event_rally.html', views.new_event_rally, name='new_event_rally'),
-    url(r'^new_event_vip_leader.html', views.new_event_vip_leader, name='new_event_vip_leader'),
-    url(r'^new_event_critical_route.html', views.new_event_critical_route, name='new_event_critical_route'),
+    # event tables
+    url(r'^rally.html$', views.rally, name='rally'),
+    url(r'^crime.html$', views.crime, name='crime'),
+    url(r'^epidemic.html$', views.epidemic, name='epidemic'),
+    url(r'^natural_calamities.html$', views.natural_calamities, name='natural_calamities'),
+    url(r'^public_gathering.html$', views.public_gathering, name='public_gathering'),
+
+    # API
+    url(r'^epidemic', views.EpidemicDetail.as_view()),
+    url(r'^epidemic/(?P<pk>\d+)/$', views.EpidemicDetail.as_view(), name='update event'),
+    url(r'^epidemic', views.EpidemicDetail.as_view(), name='delete_event'),
+
+    url(r'^publicGathering', views.PublicGatheringDetail.as_view()),
+    url(r'^publicGathering/(?P<pk>\d+)/$', views.PublicGatheringDetail.as_view(), name='update event'),
+    url(r'^publicGathering', views.PublicGatheringDetail.as_view(), name='delete_event'),
+
+    url(r'^rally', views.RallyDetail.as_view()),
+    url(r'^rally/(?P<pk>\d+)/$', views.RallyDetail.as_view(), name='update event'),
+    url(r'^rally', views.RallyDetail.as_view(), name='delete_event'),
+
+    url(r'^crime', views.CrimeDetail.as_view()),
+    url(r'^crime/(?P<pk>\d+)/$', views.CrimeDetail.as_view(), name='update event'),
+    url(r'^crime', views.CrimeDetail.as_view(), name='delete_event'),
+
+    url(r'^naturalCalamities', views.NaturalCalamitiesDetail.as_view()),
+    url(r'^naturalCalamities/(?P<pk>\d+)/$', views.NaturalCalamitiesDetail.as_view(), name='update event'),
+    url(r'^naturalCalamities', views.NaturalCalamitiesDetail.as_view(), name='delete_event'),
+
+    # model forms
+    url(r'^new_event_rally.html', views.rallyform),
+    url(r'^new_event_crime.html', views.crimeform),
+    url(r'^new_event_epidemic.html', views.epidemicform),
+    url(r'^new_event_natural_calamities.html', views.naturalcalamitiesform),
+    url(r'^new_event_public_gathering.html', views.publicgatheringform),
+
 ]
+
+urlpatterns = format_suffix_patterns(urlpatterns)

@@ -114,57 +114,10 @@
 </div>
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="active" href="rally.html">Rally</a></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="active" href="critical_route.html">Critical Route</a></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="active" href="riots.html">Riots</a></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="active" href="vip_leader.html">VIP Leader</a></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="active" href="events_table.html">Events Table</a></p>
-
-
-<!-- <h2>My Customers</h2> -->
-<!--
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
-
-<table id="myTable">
-    <tr class="header">
-{#        <th style="width:15%;">Id</th>#}
-
-        <th style="width:30%;">Name</th>
-        <th style="width:20%;">Location</th>
-        <th style="width:15%;">Date</th>
-        <th style="width:35%;">Comment</th>
-    </tr>
-    {% for event in events_table %}
-        <tr>
-{#            <td>{{ event.id }}</td>#}
-            <td><a href="/law_and_order/{{ event.id }}">{{ event.name }}</a></td>
-            <td>{{ event.location }}</td>
-            <td>{{ event.date_of_event }}</td>
-            <td>{{ event.comment }}</td>
-        </tr>
-    {% endfor %}
-</table>
-
-<script>
-    function myFunction() {
-        let input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("myInput");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("myTable");
-        tr = table.getElementsByTagName("tr");
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[0];
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-    }
-</script>
--->
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="active" href="crime.html">Crime</a></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="active" href="epidemic.html">Epidemic</a></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="active" href="public_gathering.html">Public Gathering</a></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="active" href="natural_calamities.html">Natural Calamities</a></p>
 
 </body>
 </html>
