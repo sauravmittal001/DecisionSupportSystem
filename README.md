@@ -7,8 +7,8 @@ For the time kept:
 	Front end: HTML, CSS and JavaScript
 
 
-Activating Virtual Environment
+Activating Virtual Environment <br>
 `source newenv/bin/activate`
 
-Running the code
+Running the code <br>
 `python3 manage.py runserver`
