@@ -4,9 +4,9 @@
 
 ### 🌟 Website Screens
 
-|  ![alt text](https://github.com/sauravmittal001/VoxCo/blob/master/img/screenshot1.jpeg)  |  ![alt text](https://github.com/sauravmittal001/VoxCo/blob/master/img/screenshot2.jpeg)  |  ![alt text](https://github.com/sauravmittal001/VoxCo/blob/master/img/screenshot3.jpeg)  |
+|  ![alt text](https://github.com/sauravmittal001/DecisionSupportSystem/blob/master/img/screenshot6.jpeg)  |  ![alt text](https://github.com/sauravmittal001/DecisionSupportSystem/blob/master/img/screenshot1.jpeg)  |  ![alt text](https://github.com/sauravmittal001/DecisionSupportSystem/blob/master/img/screenshot2.jpeg)  |
 | ----------- | ----------- | ----------- |
-| ![alt text](https://github.com/sauravmittal001/VoxCo/blob/master/img/screenshot4.jpeg) | ![alt text](https://github.com/sauravmittal001/VoxCo/blob/master/img/screenshot5.jpeg) | ![alt text](https://github.com/sauravmittal001/VoxCo/blob/master/img/screenshot6.jpeg) |
+| ![alt text](https://github.com/sauravmittal001/DecisionSupportSystem/blob/master/img/screenshot3.jpeg) | ![alt text](https://github.com/sauravmittal001/DecisionSupportSystem/blob/master/img/screenshot4.jpeg) | ![alt text](https://github.com/sauravmittal001/DecisionSupportSystem/blob/master/img/screenshot5.jpeg) |
 
 ---
 
