@@ -59,7 +59,7 @@ $ git clone https://github.com/sauravmittal001/DecisionSupportSystem
 ### ✨ Contribution
 
 **Law and Order Section**
-The Law and Order Section is responsible for storing and processing details, experience and feedback of district events in the district. Event details and attributes can be found [here]()
+The Law and Order Section is responsible for storing and processing details, experience and feedback of district events in the district. Event details and attributes can be found [here](https://github.com/sauravmittal001/DecisionSupportSystem/blob/master/DSS_Law_and_Order_Attributes.pdf)
 These details and experiences are stored as a future references when the person in-charge has to attend/handle a similar event in future. The past data would help to predict what all measures would help in the future events.
 Similarly, all the help regarding literature reading, convenient logistics and helpful advices would help the officer in-charge.
 
