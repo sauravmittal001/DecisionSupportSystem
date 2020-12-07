@@ -4,9 +4,9 @@
 
 ### 🌟 Website Screens
 
-|  ![alt text](https://github.com/sauravmittal001/DecisionSupportSystem/blob/master/img/screenshot6.jpeg)  |  ![alt text](https://github.com/sauravmittal001/DecisionSupportSystem/blob/master/img/screenshot1.jpeg)  |  ![alt text](https://github.com/sauravmittal001/DecisionSupportSystem/blob/master/img/screenshot2.jpeg)  |
+|  ![alt text](https://github.com/sauravmittal001/DecisionSupportSystem/blob/master/img/screenshot6.jpg)  |  ![alt text](https://github.com/sauravmittal001/DecisionSupportSystem/blob/master/img/screenshot1.jpg)  |  ![alt text](https://github.com/sauravmittal001/DecisionSupportSystem/blob/master/img/screenshot2.jpg)  |
 | ----------- | ----------- | ----------- |
-| ![alt text](https://github.com/sauravmittal001/DecisionSupportSystem/blob/master/img/screenshot3.jpeg) | ![alt text](https://github.com/sauravmittal001/DecisionSupportSystem/blob/master/img/screenshot4.jpeg) | ![alt text](https://github.com/sauravmittal001/DecisionSupportSystem/blob/master/img/screenshot5.jpeg) |
+| ![alt text](https://github.com/sauravmittal001/DecisionSupportSystem/blob/master/img/screenshot3.jpg) | ![alt text](https://github.com/sauravmittal001/DecisionSupportSystem/blob/master/img/screenshot4.jpg) | ![alt text](https://github.com/sauravmittal001/DecisionSupportSystem/blob/master/img/screenshot5.jpg) |
 
 ---
 
@@ -56,7 +56,7 @@ $ git clone https://github.com/sauravmittal001/DecisionSupportSystem
 - Creating a Dashboard/DSS Architecture, coding it up
 - Using Operations Research and AI tools and more
 
-### ✨ Contribution
+### ✨ Project Contribution
 
 **Law and Order Section**
 The Law and Order Section is responsible for storing and processing details, experience and feedback of district events in the district. Event details and attributes can be found [here](https://github.com/sauravmittal001/DecisionSupportSystem/blob/master/DSS_Law_and_Order_Attributes.pdf)
