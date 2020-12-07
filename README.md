@@ -4,9 +4,10 @@
 
 ### 🌟 Website Screens
 
-|  ![alt text](https://github.com/sauravmittal001/DecisionSupportSystem/blob/master/img/screenshot6.jpg)  |  ![alt text](https://github.com/sauravmittal001/DecisionSupportSystem/blob/master/img/screenshot1.jpg)  |  ![alt text](https://github.com/sauravmittal001/DecisionSupportSystem/blob/master/img/screenshot2.jpg)  |
-| ----------- | ----------- | ----------- |
-| ![alt text](https://github.com/sauravmittal001/DecisionSupportSystem/blob/master/img/screenshot3.jpg) | ![alt text](https://github.com/sauravmittal001/DecisionSupportSystem/blob/master/img/screenshot4.jpg) | ![alt text](https://github.com/sauravmittal001/DecisionSupportSystem/blob/master/img/screenshot5.jpg) |
+| ![alt text](https://github.com/sauravmittal001/DecisionSupportSystem/blob/master/img/screenshot6.jpg) | ![alt text](https://github.com/sauravmittal001/DecisionSupportSystem/blob/master/img/screenshot1.jpg) |
+| ----------- | ----------- |
+| ![alt text](https://github.com/sauravmittal001/DecisionSupportSystem/blob/master/img/screenshot2.jpg) | ![alt text](https://github.com/sauravmittal001/DecisionSupportSystem/blob/master/img/screenshot3.jpg) |
+| ![alt text](https://github.com/sauravmittal001/DecisionSupportSystem/blob/master/img/screenshot4.jpg) | ![alt text](https://github.com/sauravmittal001/DecisionSupportSystem/blob/master/img/screenshot5.jpg) |
 
 ---
 
